@@ -33,3 +33,19 @@ Para realizar o download deste, e outros arquivos necessários, execute o comand
 Acesse o diretŕio ~/vagrant e execute o comando para criação do ambiente:
 
     $ vagrant up
+    
+Este comando irá instalar e configurar uma máquina virtual pronta para o desenvolvimento PHP.
+   
+Após o fim da instalação, todo o conteúdo do diretório **~/src** está acessível no diretório **/src/www/** da máquina virtual
+  
+Isto permite que você edite os arquivos fontes PHP na sua estação, e que estes arquivos sejam executados na máquina virtual.
+ 
+Por fim, execute o comando abaixo:
+
+    $ echo 'address=/vagrant/192.168.33.10' | sudo tee --append /etc/dnsmasq.conf > /dev/null
+    
+Este comando irá fazer com que sua máquina virtual responda por todas as requisições HTTP com final ".vagrant"
+    
+Exemplificando. Ao acessar a url http:// **light**.vagrant do seu navegador, o apache da máquina virtual irá responder.
+ 
+ A configuração do apache no vagrant, irá buscar um projeto em /srv/www/ **light**/public/
