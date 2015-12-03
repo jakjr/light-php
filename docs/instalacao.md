@@ -7,6 +7,11 @@ Será adotado como padrão para o ambiente de desenvolvimento PHP na Celepar, a 
 Vagrant é uma ferramenta que facilita e ajuda na virtualização do ambiente de desenvolvimento na máquina do desenvolvedor.
 Desta forma é possível ter um ambiente de desenvolvimento muito semelhante ao ambiente de homologação e produção.
 
+Links sobre o Vagrant:
+
+[link1](http://flaviosilveira.com/2012/vagrant-facil-e-util/)
+[link2](http://www.sitepoint.com/re-introducing-vagrant-right-way-start-php/)
+
 ## Requisitos
 
 Realize o download e faça a instalação do virtualbox e do vagrant
@@ -22,11 +27,11 @@ Realize o download e faça a instalação do virtualbox e do vagrant
 
 ## Criação do ambiente de desenvolvimento
 
-A configuração do vagrant é mantida em um arquivo chamado **Vagrantfile**
+A configuração do vagrant é mantida em um arquivo chamado **Vagrantfile**.
 
 Já existe um aquivo pré configurado com as necessidades da Celepar.
 
-Para realizar o download deste, e outros arquivos necessários, execute o comando abaixo:
+Para realizar o download deste e outros arquivos necessários, execute o comando abaixo:
 
     $ git clone https://github.com/jakjr/light-php.git ~/vagrant
     
@@ -45,7 +50,3 @@ Por fim, execute o comando abaixo:
     $ echo 'address=/vagrant/192.168.33.10' | sudo tee --append /etc/dnsmasq.conf > /dev/null
     
 Este comando irá fazer com que sua máquina virtual responda por todas as requisições HTTP com final ".vagrant"
-    
-Exemplificando. Ao acessar a url http:// **light**.vagrant do seu navegador, o apache da máquina virtual irá responder.
- 
- A configuração do apache no vagrant, irá buscar um projeto em /srv/www/ **light**/public/
