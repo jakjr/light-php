@@ -2,4 +2,4 @@
 
 Arquivos e documentação sobre a instalação do Light-PHP.
 
-Acesso o diretório docs para mais informações.
+Acesse o diretório docs para mais informações.
