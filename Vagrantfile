@@ -6,14 +6,14 @@ system "export http_proxy='http://proxy0.celepar.parana:8080/'"
 system "export https_proxy='https://proxy0.celepar.parana:8080/'"
 system "export no_proxy='localhost,127.0.0.1/8,10.0.0.0/8,192.168.1.0/24,.parana,.local'"
 
-system "wget -qN http://trac.gic.celepar.parana/trac/pinhao/raw-attachment/wiki/frameworkphp/install.sh"
-system "wget -qN http://trac.gic.celepar.parana/trac/pinhao/raw-attachment/wiki/frameworkphp/bootstrap.sh"
+#system "wget -qN http://trac.gic.celepar.parana/trac/pinhao/raw-attachment/wiki/frameworkphp/install.sh"
+#system "wget -qN http://trac.gic.celepar.parana/trac/pinhao/raw-attachment/wiki/frameworkphp/bootstrap.sh"
 
 # instalacao automatica de plugins necessarios para o lightphp-vagrant
-required_plugins = %w( vagrant-vbguest )
-required_plugins.each do |plugin|
-  system "vagrant plugin install #{plugin}" unless Vagrant.has_plugin? plugin
-end
+#required_plugins = %w( vagrant-vbguest )
+#required_plugins.each do |plugin|
+#  system "vagrant plugin install #{plugin}" unless Vagrant.has_plugin? plugin
+#end
 
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
