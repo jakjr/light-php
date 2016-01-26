@@ -279,7 +279,7 @@ echo "--- Criando SWAP ---"
 mkdir -p /var/cache/swap/
 dd if=/dev/zero of=/var/cache/swap/myswap bs=1M count=512
 chmod 0600 /var/cache/swap/myswap
-mkswap /var/cache/swap/myswap
-swapon /var/cache/swap/myswap
+/sbin/mkswap /var/cache/swap/myswap
+/sbin/swapon /var/cache/swap/myswap
 echo '/var/cache/swap/myswap    none    swap    sw    0   0' >> /etc/fstab
 
