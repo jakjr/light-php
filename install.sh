@@ -203,13 +203,12 @@ zypper -q -n in {libdnet1,liblua5_1,nmap,telnet,php5-opcache,php5-readline,php5-
 echo "--- Aumentando memória php client ---"
 sed -i "s/memory_limit = .*/memory_limit = -1/" /etc/php5/cli/php.ini
 
+echo "--- Executando composer self-update"
+composer -q self-update
 
 echo "--- Alterando owner do diretório do composer, necessário para executar o composer self-update"
 chown -R vagrant /usr/local/bin/;
 ln -s /usr/local/bin/composer /usr/bin/composer
-
-echo "--- Executando composer self-update"
-composer -q self-update
 
 
 echo "--- Habilitando logs de erros do PHP ---"
@@ -259,4 +258,28 @@ rm /etc/apache2/vhosts.d/default.conf 1>>/tmp/lightphp-install.log 2>>/tmp/light
 echo "--- Liberando acessos ao pgsql e mysql no firewall do SLES ---"
 sed -i "s/FW_SERVICES_EXT_TCP=.*/FW_SERVICES_EXT_TCP=\"22 80 443 5432 3306\"/" /etc/sysconfig/SuSEfirewall2
 /etc/init.d/SuSEfirewall2_setup restart
+
+
+echo "--- Configurando composer ---"
+cat << EOF > /home/vagrant/.composer/config.json
+{
+    "repositories": [
+      {
+        "type": "composer",
+        "url": "http://satis.celepar.parana"
+      }
+    ],
+    "config": {
+        "github-protocols": ["https"]
+    }
+}
+EOF
+
+echo "--- Criando SWAP ---"
+mkdir -p /var/cache/swap/
+dd if=/dev/zero of=/var/cache/swap/myswap bs=1M count=512
+chmod 0600 /var/cache/swap/myswap
+mkswap /var/cache/swap/myswap
+swapon /var/cache/swap/myswap
+echo '/var/cache/swap/myswap    none    swap    sw    0   0' >> /etc/fstab
 
