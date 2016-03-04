@@ -16,7 +16,7 @@ Links sobre o Vagrant:
 
 Realize o download e faça a instalação do virtualbox e do vagrant
 
-[Virtualbox](http://trac.gic.celepar.parana/trac/pinhao/attachment/wiki/Vagrant/virtualbox-4.3_4.3.14-95030~Ubuntu~raring_amd64.deb)
+[Virtualbox](http://trac.gic.celepar.parana/trac/pinhao/raw-attachment/wiki/Vagrant/virtualbox-4.3_4.3.22-98236%7EUbuntu%7Eraring_amd64.deb)
 
     $ sudo dpkg -i virtualbox-4.3_4.3.14-95030~Ubuntu~raring_amd64.deb
 
