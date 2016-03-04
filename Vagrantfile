@@ -27,8 +27,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define :sles do |sles|
     sles.vm.box = "sles"
     #sles.vm.network "forwarded_port", guest: 80, host: 8080 # accessing "localhost:8080" will access port 80 on the guest machine.
-    sles.vm.network :private_network, ip: "192.168.33.10"
+    #sles.vm.network :private_network, ip: "192.168.33.10"
   end
+  
+  config.vm.network "private_network", ip: "192.168.33.10"
 
   config.vm.synced_folder "./", "/vagrant", disabled: true
 
