@@ -35,11 +35,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.synced_folder "./", "/vagrant", disabled: true
 
   ## Altere o diretório abaixo ~/src abaixo pelo local onde armazenará seus projetos, p.ex. ~/workspace/
-  config.vm.synced_folder "~/src", "/srv/www/", #type: "nfs"
-    id: "vagrant-root",
-    owner: "vagrant",
-    group: "www",
-    mount_options: ["dmode=775,fmode=775"]
+  #config.vm.synced_folder "~/src", "/srv/www/", #type: "nfs"
+  #  id: "vagrant-root",
+  #  owner: "vagrant",
+  #  group: "www",
+  #  mount_options: ["dmode=775,fmode=775"]
+  config.vm.synced_folder "~/src", "/srv/www/",
+    :nfs=>true,
+    :mount_options => ['nolock,vers=3,udp,noatime,actimeo=1']
 
   config.vm.provision "shell", path: "install.sh", privileged: true
   config.vm.provision "shell", path: "bootstrap.sh", run: "always", privileged: true
