@@ -197,7 +197,7 @@ zypper -q ref
 
 
 echo "--- Instalando pacotes necessários"
-zypper -q -n in {libdnet1,liblua5_1,nmap,telnet,php5-opcache,php5-readline,php5-pcntl} 1>>/tmp/lightphp-install.log 2>>/tmp/lightphp-install.log
+zypper -q -n in {libdnet1,liblua5_1,nmap,telnet,php5-opcache,php5-readline,php5-pcntl,php5-fileinfo} 1>>/tmp/lightphp-install.log 2>>/tmp/lightphp-install.log
 
 
 echo "--- Aumentando memória php client ---"
@@ -205,6 +205,9 @@ sed -i "s/memory_limit = .*/memory_limit = -1/" /etc/php5/cli/php.ini
 
 echo "--- Executando composer self-update"
 composer -q self-update
+
+echo "--- Removendo secure-http"
+composer -g config secure-http false
 
 echo "--- Alterando owner do diretório do composer, necessário para executar o composer self-update"
 chown -R vagrant /usr/local/bin/;
