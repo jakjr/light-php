@@ -207,7 +207,7 @@ echo "--- Executando composer self-update"
 composer -q self-update
 
 echo "--- Removendo secure-http"
-composer -g config secure-http false
+composer config --global secure-http false
 
 echo "--- Alterando owner do diretório do composer, necessário para executar o composer self-update"
 chown -R vagrant /usr/local/bin/;
